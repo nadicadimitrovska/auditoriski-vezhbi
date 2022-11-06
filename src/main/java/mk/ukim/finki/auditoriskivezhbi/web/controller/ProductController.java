@@ -64,6 +64,7 @@ public class ProductController {
           model.addAttribute("manufacturers",manufacturers);
           model.addAttribute("product",product);
           return "add-product";
+
       }
       return "redirect:/products?error=ProductNotFound";
     }

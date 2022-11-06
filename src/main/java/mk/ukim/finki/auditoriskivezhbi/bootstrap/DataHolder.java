@@ -1,9 +1,6 @@
 package mk.ukim.finki.auditoriskivezhbi.bootstrap;
 
-import mk.ukim.finki.auditoriskivezhbi.model.Category;
-import mk.ukim.finki.auditoriskivezhbi.model.Manufacturer;
-import mk.ukim.finki.auditoriskivezhbi.model.Product;
-import mk.ukim.finki.auditoriskivezhbi.model.User;
+import mk.ukim.finki.auditoriskivezhbi.model.*;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -18,6 +15,7 @@ public class DataHolder {
 
     public static List<Product>products=new ArrayList<>();
 
+    public static List<ShoppingCart>shoppingCarts=new ArrayList<>();
     @PostConstruct
     public void init() {
         this.categories.add(new Category("Software", "Software Category"));
@@ -35,5 +33,8 @@ public class DataHolder {
         products.add(new Product("Ball 1",235.8,7,category,manufacturer ));
         products.add(new Product("Ball 2",235.8,7,category,manufacturer ));
         products.add(new Product("Ball 3",235.8,7,category,manufacturer ));
+
+
+
     }
 }
