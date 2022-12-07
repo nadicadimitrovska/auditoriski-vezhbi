@@ -1,7 +1,7 @@
 package mk.ukim.finki.auditoriskivezhbi.service.impl;
 
 import mk.ukim.finki.auditoriskivezhbi.model.Manufacturer;
-import mk.ukim.finki.auditoriskivezhbi.repository.InMemoryManufacturerRepository;
+import mk.ukim.finki.auditoriskivezhbi.repository.jpa.ManufacturerRepository;
 import mk.ukim.finki.auditoriskivezhbi.service.ManufacturerService;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +11,15 @@ import java.util.Optional;
 @Service
 public class ManufacturerServiceImpl implements ManufacturerService {
 
-    private final InMemoryManufacturerRepository manufacturerRepository;
+//    private final InMemoryManufacturerRepository manufacturerRepository;
+    private final ManufacturerRepository manufacturerRepository;
 
-    public ManufacturerServiceImpl(InMemoryManufacturerRepository manufacturerRepository) {
+    public ManufacturerServiceImpl(ManufacturerRepository manufacturerRepository) {
         this.manufacturerRepository = manufacturerRepository;
     }
+//    public ManufacturerServiceImpl(InMemoryManufacturerRepository manufacturerRepository) {
+//        this.manufacturerRepository = manufacturerRepository;
+//    }
 
     @Override
     public List<Manufacturer> findAll() {
@@ -28,12 +32,18 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     }
 
     @Override
+//    public Optional<Manufacturer> save(String name, String address) {
+//        return this.manufacturerRepository.save(name, address);
+//    }
     public Optional<Manufacturer> save(String name, String address) {
-        return this.manufacturerRepository.save(name, address);
+        return Optional.of(this.manufacturerRepository.save(new Manufacturer(name,address)));
     }
 
     @Override
-    public boolean deleteById(Long id) {
-        return this.manufacturerRepository.deleteById(id);
+//    public boolean deleteById(Long id) {
+//        return this.manufacturerRepository.deleteById(id);
+//    }
+    public void deleteById(Long id) {
+         this.manufacturerRepository.deleteById(id);
     }
 }

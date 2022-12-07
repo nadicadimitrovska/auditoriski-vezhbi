@@ -1,4 +1,4 @@
-package mk.ukim.finki.auditoriskivezhbi.repository;
+package mk.ukim.finki.auditoriskivezhbi.repository.impl;
 
 import mk.ukim.finki.auditoriskivezhbi.bootstrap.DataHolder;
 import mk.ukim.finki.auditoriskivezhbi.model.Category;

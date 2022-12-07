@@ -22,14 +22,12 @@ public class ShoppingCart {
     @Enumerated(EnumType.STRING)
     private ShoppingCartStatus status;
 
-
-
     public ShoppingCart() {
-        this.id=(long)(Math.random()*1000);
+        //this.id=(long)(Math.random()*1000);
     }
 
     public ShoppingCart(User user) {
-        this.id=(long)(Math.random()*1000);
+        //this.id=(long)(Math.random()*1000);
         this.dateCreated = LocalDateTime.now();
         this.user = user;
         this.products = new ArrayList<>();
