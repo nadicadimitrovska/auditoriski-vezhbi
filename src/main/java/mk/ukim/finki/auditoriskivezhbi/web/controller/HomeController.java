@@ -6,12 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
+@RequestMapping(value ={ "/","home"})
 public class HomeController {
 
-    @GetMapping("home")
-    public String getHomePage(){
-        return "home";
+//    @GetMapping("home")
+    @GetMapping
+    public String getHomePage(Model model){
+        model.addAttribute("bodyContent","home");
+//        return "home";
+        return "master-template";
     }
 
     @GetMapping("access_denied")

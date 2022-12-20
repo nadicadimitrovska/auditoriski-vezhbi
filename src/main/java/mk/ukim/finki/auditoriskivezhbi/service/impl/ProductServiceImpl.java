@@ -72,6 +72,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public Optional<Product> edit(Long id, String name, Double price, Integer quantity, Long categoryId, Long manufacturerId) {
         Product product = this.productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
 

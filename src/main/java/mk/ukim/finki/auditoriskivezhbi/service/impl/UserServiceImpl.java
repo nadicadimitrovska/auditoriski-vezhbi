@@ -3,6 +3,7 @@ package mk.ukim.finki.auditoriskivezhbi.service.impl;
 import mk.ukim.finki.auditoriskivezhbi.model.Role;
 import mk.ukim.finki.auditoriskivezhbi.model.User;
 import mk.ukim.finki.auditoriskivezhbi.model.exceptions.InvalidArgumentException;
+import mk.ukim.finki.auditoriskivezhbi.model.exceptions.InvalidUsernameOrPasswordException;
 import mk.ukim.finki.auditoriskivezhbi.model.exceptions.PasswordsDoNotMatchException;
 import mk.ukim.finki.auditoriskivezhbi.model.exceptions.UsernameAlreadyExistsException;
 import mk.ukim.finki.auditoriskivezhbi.repository.jpa.UserRepository;
@@ -26,7 +27,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public User register(String username, String password, String repeatPassword, String name, String surname, Role role) {
         if (username==null || username.isEmpty() || password==null || password.isEmpty()){
-            throw new InvalidArgumentException();
+            //throw new InvalidArgumentException();
+            throw new InvalidUsernameOrPasswordException();
         }
         if (!password.equals(repeatPassword)){
             throw new PasswordsDoNotMatchException();
